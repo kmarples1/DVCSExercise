@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Northwind.Data
@@ -21,5 +22,7 @@ namespace Northwind.Data
         // Navigational Property
         public virtual Supplier Supplier { get; set; }
         public virtual Category Category { get; set; }
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

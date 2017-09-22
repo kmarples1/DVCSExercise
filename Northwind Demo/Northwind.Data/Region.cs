@@ -5,14 +5,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Northwind.Data
 {
+    [Table("Region")]
     public class Region
     {
         #region ColumnMappings
         // TODO: Region Column Mappings
+
+        public int RegionID { get; set; }
+        public string RegionDescription { get; set; }
+
         #endregion
 
         #region Navigation Properties
         // TODO: Region Navigation Properties
+
+        public virtual ICollection<Territory> Territories { get; set; }
+
         #endregion
     }
 }
