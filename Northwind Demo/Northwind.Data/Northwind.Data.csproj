@@ -53,10 +53,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerCustomerDemo.cs" />
-    <Compile Include="CustomerDemographic.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeTerritory.cs" />
     <Compile Include="NorthwindContext.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderDetail.cs" />
@@ -66,8 +63,6 @@
     <Compile Include="Shipper.cs" />
     <Compile Include="Supplier.cs" />
     <Compile Include="Territory.cs" />
-    <Compile Include="Version.cs" />
-    <Compile Include="VersionDDLEventLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

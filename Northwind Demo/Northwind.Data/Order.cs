@@ -5,35 +5,33 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Northwind.Data
 {
+    [Table("Orders")]
     public class Order
     {
+        #region Column Mappings
+        [Key]
         public int OrderID { get; set; }
         public string CustomerID { get; set; }
         public int? EmployeeID { get; set; }
-
         public DateTime? OrderDate { get; set; }
-
         public DateTime? RequiredDate { get; set; }
-
         public DateTime? ShippedDate { get; set; }
-
         public int? ShipVia { get; set; }
-
         public decimal? Freight { get; set; }
-
         public string ShipName { get; set; }
         public string ShipAddress { get; set; }
         public string ShipCity { get; set; }
         public string ShipRegion { get; set; }
         public string ShipPostalCode { get; set; }
+        public string ShipCountry { get; set; }
+        #endregion
 
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; } //collections - green?
-
-        [ForeignKey("ShipVia")] // <-- Tells entity framework which propery to use as the foreign key as there is two "Shipper"
+        #region Navigational Properties
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        [ForeignKey("ShipVia")] // Tell EF which property to use as Foreign Key data
         public virtual Shipper Shipper { get; set; }
-
         public virtual Customer Customer { get; set; }
-
-        public virtual Shipper ShipViaShipper { get; set; }
+        public virtual Employee Employee { get; set; }
+        #endregion
     }
 }

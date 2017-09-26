@@ -33,44 +33,31 @@ namespace Northwind.Data
         #endregion
 
         #region Navigation Properties
-
-        public virtual ICollection<Order> Orders { get; set; }
-
-        public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
-
-        public virtual ICollection<Employee> ReportsToChildren { get; set; }
-
-        public virtual Employee ReportsToEmployee { get; set; }
-
         // DEMO: Foreign Key for Self-Referencing Relationships
-        //[ForeignKey("ReportsTo")]
-        //public virtual Employee Manager { get; set; }
-        //public ICollection<Employee> Subbordinates { get; set; }
+        [ForeignKey("ReportsTo")]
+        public virtual Employee Manager { get; set; }
+        public ICollection<Employee> Subbordinates { get; set; }
 
-        //public virtual ICollection<Product> Products { get; set; }
+        // DEMO: Many-to-Many Relationships
+        public virtual ICollection<Territory> Territories { get; set; }
 
+        // TODO: Employee Navigation Properties
+        public virtual ICollection<Order> Orders { get; set; }
+        #endregion
 
+        #region Constructors
+        public Employee()
+        {
+            // DEMO: Good practice for Entity Constructors
+            // For each navigational property that is a collection,
+            // initialize it to an empty hash-set.
+            Territories = new HashSet<Territory>();
+        }
+        #endregion
 
-
-        //// DEMO: Many-to-Many Relationships
-        //public virtual ICollection<Territory> Territories { get; set; }
-
-        //// TODO: Employee Navigation Properties
-        //#endregion
-
-        //#region Constructors
-        //public Employee()
-        //{
-        //    // DEMO: Good practice for Entity Constructors
-        //    // For each navigational property that is a collection,
-        //    // initialize it to an empty hash-set.
-        //    Territories = new HashSet<Territory>();
-        //}
-        //#endregion
-
-        //// TODO: Non-mapped properties
-        //// FullName -> First Last
-        //// FormalName -> Last, First
-        //// 
+        // TODO: Non-mapped properties
+        // FullName -> First Last
+        // FormalName -> Last, First
+        // 
     }
 }

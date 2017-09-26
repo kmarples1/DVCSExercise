@@ -11,10 +11,6 @@ namespace Northwind.Console
     {
         static void Main(string[] args)
         {
-            //Why doesn't this work? Use the fully qualified name
-            // Console.WriteLine("Hello World"); - doesnt work
-            // System.Console.WriteLine("Hello World"); - works
-
             // Proof that the Many-to-Many mapping of Employees/Territories is working...
             using (var context = new NorthwindContext())
             {

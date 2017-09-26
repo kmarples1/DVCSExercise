@@ -9,18 +9,13 @@ namespace Northwind.Data
     public class Region
     {
         #region ColumnMappings
-        // TODO: Region Column Mappings
-
+        [Key]
         public int RegionID { get; set; }
         public string RegionDescription { get; set; }
-
         #endregion
 
         #region Navigation Properties
         // TODO: Region Navigation Properties
-
-        public virtual ICollection<Territory> Territories { get; set; }
-
         #endregion
     }
 }
